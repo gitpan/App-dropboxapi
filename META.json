@@ -6,7 +6,7 @@
    "dynamic_config" : 1,
    "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112150",
    "license" : [
-      "perl_5"
+      "mit"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
@@ -38,11 +38,11 @@
             "ExtUtils::Install" : "1.43",
             "ExtUtils::MakeMaker" : "6.3",
             "JSON" : 0,
-            "Path::Class" : 0,
-            "WebService::Dropbox" : 0
+            "Path::Class" : "0.26",
+            "WebService::Dropbox" : "1.11"
          }
       }
    },
    "release_status" : "stable",
-   "version" : "1.05"
+   "version" : "1.05b"
 }

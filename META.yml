@@ -8,7 +8,7 @@ configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 1
 generated_by: 'ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112150'
-license: perl
+license: mit
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -24,6 +24,6 @@ requires:
   ExtUtils::Install: 1.43
   ExtUtils::MakeMaker: 6.3
   JSON: 0
-  Path::Class: 0
-  WebService::Dropbox: 0
-version: 1.05
+  Path::Class: 0.26
+  WebService::Dropbox: 1.11
+version: 1.05b
