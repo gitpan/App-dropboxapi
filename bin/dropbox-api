@@ -15,7 +15,7 @@ use JSON;
 use Path::Class;
 use WebService::Dropbox;
 
-our $VERSION = '1.06';
+our $VERSION = '1.07';
 
 my $limit = 10 * 1024 * 1024; # files_put_chunked method has large file support.
 
@@ -24,8 +24,8 @@ if ($^O eq 'darwin') {
     $Encode::Locale::ENCODING_LOCALE_FS = 'utf-8-mac';
 }
 
-binmode STDIN,  ":utf8";
 binmode STDOUT, ":utf8";
+binmode STDERR, ":utf8";
 
 my $config_file = file( $ENV{'DROPBOX_CONF'} || ($ENV{'HOME'} || $ENV{'HOMEPATH'}, '.dropbox-api-config') );
 
