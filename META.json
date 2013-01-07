@@ -39,10 +39,10 @@
             "ExtUtils::MakeMaker" : "6.3",
             "JSON" : 0,
             "Path::Class" : "0.26",
-            "WebService::Dropbox" : "1.11"
+            "WebService::Dropbox" : "1.15"
          }
       }
    },
    "release_status" : "stable",
-   "version" : "1.05c"
+   "version" : "1.06"
 }

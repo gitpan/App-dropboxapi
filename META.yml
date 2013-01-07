@@ -25,5 +25,5 @@ requires:
   ExtUtils::MakeMaker: 6.3
   JSON: 0
   Path::Class: 0.26
-  WebService::Dropbox: 1.11
-version: 1.05c
+  WebService::Dropbox: 1.15
+version: 1.06
