@@ -26,4 +26,4 @@ requires:
   JSON: 0
   Path::Class: 0.26
   WebService::Dropbox: 1.17
-version: 1.12
+version: 1.13
