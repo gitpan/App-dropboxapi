@@ -1,39 +1,31 @@
-package App::dropboxapi;
-use strict;
-use warnings;
-our $VERSION = '1.14';
-
-=head1 NAME
+[![Build Status](https://travis-ci.org/s-aska/dropbox-api-command.png?branch=master)](https://travis-ci.org/s-aska/dropbox-api-command)
+# NAME
 
 App::dropboxapi - command line interface to access Dropbox API
 
-=head1 SYNOPSIS
+# SYNOPSIS
 
     dropbox-api put /tmp/foo.txt dropbox:/Public/
 
-Run C<dropbox-api help> for more options.
+Run `dropbox-api help` for more options.
 
-=head1 DESCRIPTION
+# DESCRIPTION
 
 dropbox-api is a command line interface to access Dropbox API.
 
 has many sub-commands ... ls, find, sync, cp, mv, rm, mkdir, get, put, uid
 
-=head1 Sub Commands
+# Sub Commands
 
-=head2 help
+## help
 
 disp help.
 
-=over 4
+- syntax
 
-=item syntax
+    dropbox-api help \[<command>\]
 
-dropbox-api help [<command>]
-
-=back
-
-=head3 Example
+### Example
 
     > dropbox-api help
     Usage: dropbox-api <command> [args] [options]
@@ -53,7 +45,7 @@ dropbox-api help [<command>]
 
     See 'dropbox-api help <command>' for more information on a specific command.
 
-=head3 Example ( command help )
+### Example ( command help )
 
     > dropbox-api help ls
     Name
@@ -81,29 +73,25 @@ dropbox-api help [<command>]
             %r ... revision
             %Tk ... DateTime 'strftime' function
 
-=head2 ls
+## ls
 
 file list view.
 
-=over 4
+- alias
 
-=item alias
+    list
 
-list
+- syntax
 
-=item syntax
+    dropbox-api ls <dropbox\_path>
 
-dropbox-api ls <dropbox_path>
-
-=back
-
-=head3 Example
+### Example
 
     > dropbox-api list /product
     d        - Thu, 24 Feb 2011 06:58:00 +0000 /product/chrome-extentions
     -   294557 Sun, 26 Dec 2010 21:55:59 +0000 /product/ex.zip
 
-=head3 human readable option ( -h )
+### human readable option ( -h )
 
 print sizes in human readable format (e.g., 1K 234M 2G)
 
@@ -111,7 +99,7 @@ print sizes in human readable format (e.g., 1K 234M 2G)
     d        - Thu, 24 Feb 2011 06:58:00 +0000 /product/chrome-extentions
     -  287.7KB Sun, 26 Dec 2010 21:55:59 +0000 /product/ex.zip
 
-=head3 printf option ( -p )
+### printf option ( -p )
 
 print format.
 
@@ -132,19 +120,15 @@ print format.
         %Tk ... DateTime 'strftime' function
                 <http://search.cpan.org/dist/DateTime/lib/DateTime.pm#strftime_Patterns>
 
-=head2 find
+## find
 
 recursive file list view.
 
-=over 4
+- syntax
 
-=item syntax
+    dropbox-api find <dropbox\_path> \[options\]
 
-dropbox-api find <dropbox_path> [options]
-
-=back
-
-=head3 Example
+### Example
 
     > dropbox-api find /product/google-tasks-checker-plus
     /product/chrome-extentions/google-tasks-checker-plus/README.md
@@ -161,33 +145,33 @@ dropbox-api find <dropbox_path> [options]
     /product/chrome-extentions/google-tasks-checker-plus/src/popup.html
     /product/chrome-extentions/google-tasks-checker-plus/src/reset.css
 
-=head3 printf option ( -p )
+### printf option ( -p )
 
 see also list command's printf option.
 
-=head2 sync ( rsync )
+## sync ( rsync )
 
 recursive file synchronization.
 
-=head3 sync from dropbox
+### sync from dropbox
 
-dropbox-api sync dropbox:<source_dir> <target_dir> [options]
+dropbox-api sync dropbox:<source\_dir> <target\_dir> \[options\]
 
     > dropbox-api sync dropbox:/product/google-tasks-checker-plus/src /tmp/product
     download /private/tmp/product/external.png
     download /private/tmp/product/icon-32.png
     download /private/tmp/product/icon-128.png
 
-=head3 sync to dropbox
+### sync to dropbox
 
-dropbox-api sync <source_dir> dropbox:<target_dir> [options]
+dropbox-api sync <source\_dir> dropbox:<target\_dir> \[options\]
 
     > dropbox-api sync /tmp/product dropbox:/work/src
     upload background.html /work/src/background.html
     upload external.png /work/src/external.png
     upload icon-128.png /work/src/icon-128.png
 
-=head3 delete option ( -d )
+### delete option ( -d )
 
     > dropbox-api sync dropbox:/product/google-tasks-checker-plus/src /tmp/product -d
     download /private/tmp/product/external.png
@@ -195,7 +179,7 @@ dropbox-api sync <source_dir> dropbox:<target_dir> [options]
     download /private/tmp/product/icon-128.png
     remove background.html.tmp
 
-=head3 dry run option ( -n )
+### dry run option ( -n )
 
     > dropbox-api sync dropbox:/product/google-tasks-checker-plus/src /tmp/product -dn
     !! enable dry run !!
@@ -204,7 +188,7 @@ dropbox-api sync <source_dir> dropbox:<target_dir> [options]
     download /private/tmp/product/icon-128.png
     remove background.html.tmp
 
-=head3 verbose option ( -v )
+### verbose option ( -v )
 
     > dropbox-api sync dropbox:/product/google-tasks-checker-plus/src /tmp/product -dnv
     remote_base: /product/chrome-extentions/google-tasks-checker-plus/src
@@ -232,163 +216,131 @@ dropbox-api sync <source_dir> dropbox:<target_dir> [options]
     skip popup.html
     skip reset.css
 
-=head2 cp
+## cp
 
 copy file or directory.
 
-=over 4
+- alias
 
-=item alias
+    copy
 
-copy
+- syntax
 
-=item syntax
+    dropbox-api cp <source\_file> <target\_file>
 
-dropbox-api cp <source_file> <target_file>
-
-=back
-
-=head3 Example
+### Example
 
     dropbox-api cp memo.txt memo.txt.bak
 
-=head2 mv
+## mv
 
 move file or directory.
 
-=over 4
+- alias
 
-=item alias
+    move
 
-move
+- syntax
 
-=item syntax
+    dropbox-api mv <source\_file> <target\_file>
 
-dropbox-api mv <source_file> <target_file>
-
-=back
-
-=head3 Example
+### Example
 
     dropbox-api mv memo.txt memo.txt.bak
 
-=head2 mkdir
+## mkdir
 
 make directory.
 
-*no error if existing, make parent directories as needed.*
+\*no error if existing, make parent directories as needed.\*
 
-=over 4
+- alias
 
-=item alias
+    mkpath
 
-mkpath
+- syntax
 
-=item syntax
+    dropbox-api mkdir <directory>
 
-dropbox-api mkdir <directory>
-
-=back
-
-=head3 Example
+### Example
 
     dropbox-api mkdir product/src
 
-=head2 rm
+## rm
 
 remove file or directory.
 
-*remove the contents of directories recursively.*
+\*remove the contents of directories recursively.\*
 
-=over 4
+- alias
 
-=item alias
+    rmtree
 
-rmtree
+- syntax
 
-=item syntax
+    dropbox-api rm <file\_or\_directory>
 
-dropbox-api rm <file_or_directory>
-
-=back
-
-=head3 Example
+### Example
 
     dropbox-api rm product/src
 
-=head2 get
+## get
 
 download file from dropbox.
 
-=over 4
+- alias
 
-=item alias
+    dl, download
 
-dl, download
+- syntax
 
-=item syntax
+    dropbox-api get dropbox:<dropbox\_file> <file>
 
-dropbox-api get dropbox:<dropbox_file> <file>
-
-=back
-
-=head3 Example
+### Example
 
     dropbox-api get dropbox:/Public/foo.txt /tmp/foo.txt
 
-=head2 put
+## put
 
 upload file to dropbox.
 
-=over 4
+- alias
 
-=item alias
+    up, upload
 
-up, upload
+- syntax
 
-=item syntax
+    dropbox-api put <file> dropbox:<dropbox\_dir>
 
-dropbox-api put <file> dropbox:<dropbox_dir>
-
-=back
-
-=head3 Example
+### Example
 
     dropbox-api put /tmp/foo.txt dropbox:/Public/
 
-=head3 verbose option ( -v )
+### verbose option ( -v )
 
 A progress bar is displayed.
 
     dropbox-api put /tmp/1GB.dat dropbox:/Public/
     100% [=====================================================================================>]
 
-=head2 uid
+## uid
 
 Get your accound UID
 
-=head3 Example
+### Example
 
     dropbox-api uid
 
-=head1 COPYRIGHT
+# COPYRIGHT
 
 Copyright 2012- Shinichiro Aska
 
 The standalone executable contains the following modules embedded.
 
-=head1 LICENSE
+# LICENSE
 
 Released under the MIT license. http://creativecommons.org/licenses/MIT/
 
-=head1 COMMUNITY
+# COMMUNITY
 
-=over 4
-
-=item L<https://github.com/s-aska/dropbox-api-command> - source code repository, issue tracker
-
-=back
-
-=cut
-
-1;
+- [https://github.com/s-aska/dropbox-api-command](https://github.com/s-aska/dropbox-api-command) - source code repository, issue tracker
