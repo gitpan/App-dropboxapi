@@ -26,7 +26,7 @@ no_index:
 provides:
   App::dropboxapi:
     file: lib/App/dropboxapi.pm
-    version: 1.14
+    version: 1.16
 requires:
   DateTime::Format::Strptime: 0
   Encode::Locale: 0
@@ -39,10 +39,11 @@ resources:
   bugtracker: https://github.com/s-aska/dropbox-api-command/issues
   homepage: https://github.com/s-aska/dropbox-api-command
   repository: git://github.com/s-aska/dropbox-api-command.git
-version: 1.14
+version: 1.16
 x_authority: cpan:ASKADNA
 x_contributors:
   - 'Sylvain Filteau <cidsphere@gmail.com>'
   - 'aska <aska@www5009u.sakura.ne.jp>'
   - 'Andrew Childs <lorne@cons.org.nz>'
   - 'Shinichiro Aska <s.aska.org@gmail.com>'
+  - 'aska <aska@linecorp.com>'
